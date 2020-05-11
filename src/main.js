@@ -1,8 +1,32 @@
 import Vue from 'vue'
-import App from './App.vue'
+import VueRouter from 'vue-router'
+import App from "@/components/App";
+import Edit from "@/components/Edit";
+import List from "@/components/List";
+import Home from "@/components/Home";
 
-Vue.config.productionTip = false
+window.axios = require('axios').default;
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+Vue.use(VueRouter);
+
+Vue.component('list', List);
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '',
+            component: Home
+        },
+        {
+            path: '/:id?/edit',
+            component: Edit
+        }
+    ]
+});
+
+window.app = new Vue({
+    components: {App},
+    render: h => h(App),
+    router,
+}).$mount('#app');
