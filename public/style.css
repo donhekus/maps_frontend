@@ -1,0 +1,156 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Baloo 2', cursive;
+	font-size: 20px;
+	color: #929598;
+	letter-spacing: -.25px;
+	background-color: #222528;
+}
+
+.main {
+	display: flex;
+	min-height: 100vh;
+}
+
+.edit {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 50vw;
+	padding: 25px 30px;
+}
+
+.edit-header {
+	margin-bottom: 40px;
+}
+
+h2 {
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+.edit-header .flex {
+	display: flex;
+	align-items: flex-end;
+}
+
+.edit-header .flex .form-group {
+	flex-grow: 1;
+}
+
+.edit-header-x {
+	font-size: 30px;
+	margin-bottom: 20px;
+	padding: 5px 10px;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input,
+select {
+	width: 100%;
+	border: 2px solid #444;
+	border-radius: 4px;
+}
+
+input {
+	padding: 8px 12px;
+}
+
+select {
+	padding: 3px 12px;
+}
+
+.edit-content {
+	flex-grow: 1;
+}
+
+table {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+tbody tr:nth-of-type(2n+1) {
+	background-color: #2A2C2E;
+}
+
+th {
+	padding: 6px 10px;
+	text-align: left;
+	white-space: nowrap;
+	border-bottom: 2px solid #626568;
+}
+
+td {
+	padding: 6px 10px;
+}
+
+.box-identifier {
+	width: 30px;
+	height: 30px;
+	border: 2px solid #FFF;
+}
+
+.button {
+	display: inline-block;
+	padding: 14px 24px 12px;
+	color: #FFF;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 100vw;
+}
+
+.button + .button {
+	margin-left: 8px;
+}
+
+.button-small {
+	font-size: 16px;
+	padding: 10px 14px 8px;
+}
+
+.button-red {
+	background-color: #eb4d4b;
+}
+
+.button-green {
+	background-color: #6ab04c;
+}
+
+.preview {
+	width: 50vw;
+	padding: 25px 30px;
+	background-color: #323538;
+}
+
+.preview-table {
+	width: 100%;
+	height: calc(100vh - 50px);
+}
+
+.preview-table td {
+	border: 2px solid #323538;
+	background-color: #222528;
+}
+
+.edit-footer {
+	margin-top: 40px;
+	padding-top: 20px;
+	text-align: center;
+	border-top: 2px solid #323538;
+}
+
+.home {
+	padding: 25px 30px;
+}
