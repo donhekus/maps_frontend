@@ -40,7 +40,7 @@
         methods: {
             getPopups: function () {
                 let vm = this;
-                window.axios.get('/layout')
+                window.axios.get('http://api.donhekus.com/layout')
                     .then(function (response) {
                         vm.list = response.data;
                     });
