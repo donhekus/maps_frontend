@@ -249,7 +249,7 @@
                 let vm = this;
 
                 if (vm.layout.id) {
-                    window.axios.put('http://api.donhekus.com/layout/' + vm.layout.id, vm.layout)
+                    window.axios.post('http://api.donhekus.com/layout/' + vm.layout.id, vm.layout)
                         .then(function () {
                             vm.$router.push('/');
                         });
