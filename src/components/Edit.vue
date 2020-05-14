@@ -189,7 +189,7 @@
 		methods: {
 			getLayout: function (id) {
 				let vm = this;
-				window.axios.get('http://api.donhekus.com/layout/' + id)
+				window.axios.get('/layout/' + id)
 					.then(function (response) {
 						vm.layout = response.data;
 						for(let i = 0; i < vm.layout.elements.length; i++) {

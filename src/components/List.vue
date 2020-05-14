@@ -40,14 +40,14 @@
         methods: {
             getPopups: function () {
                 let vm = this;
-                window.axios.get('http://api.donhekus.com/layout')
+                window.axios.get('/layout')
                     .then(function (response) {
                         vm.list = response.data;
                     });
             },
             deleteItem(id) {
                 let vm = this;
-                window.axios.delete('http://api.donhekus.com/layout/' + id)
+                window.axios.delete('/layout/' + id)
                     .then(function () {
                         vm.getPopups();
                     });
