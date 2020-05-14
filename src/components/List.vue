@@ -47,7 +47,7 @@
             },
             deleteItem(id) {
                 let vm = this;
-                window.axios.delete('/layout/' + id)
+                window.axios.delete('http://api.donhekus.com/layout/' + id)
                     .then(function () {
                         vm.getPopups();
                     });
