@@ -9,6 +9,8 @@ window.axios = require('axios').default;
 
 Vue.use(VueRouter);
 
+export const eventBus = new Vue();
+
 Vue.component('list', List);
 
 const router = new VueRouter({
@@ -20,6 +22,7 @@ const router = new VueRouter({
         },
         {
             path: '/:id?/edit',
+            name: 'edit',
             component: Edit
         }
     ]

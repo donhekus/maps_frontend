@@ -137,6 +137,7 @@ td {
 .preview-table {
 	width: 100%;
 	height: calc(100vh - 50px);
+	table-layout: fixed;
 }
 
 .preview-table td {

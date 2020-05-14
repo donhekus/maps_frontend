@@ -9,16 +9,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Első számú element</td>
+				<tr v-for="elem in list" :key="elem.id">
+					<td>{{ elem.name }}</td>
 					<td>
-						<a class="button button-small button-green" href="#">Szerkesztés</a>
-						<a class="button button-small button-red" href="#">Törlés</a>
+						<router-link class="button button-small button-green" :to="{ name:'edit', params: { id: elem.id }}" title="Szerkesztés">Szerkesztés</router-link>
+						<a class="button button-small button-red" href="#" @click="deleteItem(elem.id)">Törlés</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<a class="button button-small button-green" href="#" @click="addNewElement">Hozzáadás</a>
+		<router-link class="button button-small button-green" :to="{ name:'edit'}" title="Szerkesztés">Hozzáadás</router-link>
 	</div>
 </template>
 
@@ -43,6 +43,9 @@
 					})
 					.catch(function () {
 					});
+			},
+			deleteItem(id) {
+				window.axios.delete('http://maps.test/' + id);
 			}
 		}
 	}
