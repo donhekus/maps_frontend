@@ -26,7 +26,7 @@
 
 <script>
     import {LMap, LTileLayer} from 'vue2-leaflet';
-    import {eventBus} from "@/main";
+
     export default {
         name: "Maps.vue",
         components: {
@@ -92,9 +92,7 @@
                         }
                     }
                 }
-                let emptyFields = false;
                 for (let j = rowWidth; j < vm.layout.width; j++) {
-                    emptyFields = true;
                     row.push({
                         color: '',
                         width: 1
