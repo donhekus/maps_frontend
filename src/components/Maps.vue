@@ -8,7 +8,17 @@
             <l-tile-layer :url="url"></l-tile-layer>
 
             <l-marker v-for="marker in markers" :lat-lng="marker.center" :key="marker.center">
-                <l-popup></l-popup>
+                <l-popup>
+                    <aside class="preview">
+                        <table class="preview-table">
+                            <tbody>
+                            <tr v-for="(i, index) in list" :key="index">
+                                <td v-for="(j, jindex) in i" :key="jindex" :colspan="j.width">{{ j.data }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </aside>
+                </l-popup>
             </l-marker>
         </l-map>
     </div>
@@ -16,6 +26,7 @@
 
 <script>
     import {LMap, LTileLayer} from 'vue2-leaflet';
+    import {eventBus} from "@/main";
     export default {
         name: "Maps.vue",
         components: {
@@ -30,6 +41,7 @@
                 bounds: null,
 
                 layout: [],
+                list: [],
 
                 markers: [
                     {
@@ -49,6 +61,60 @@
                 .then(function (response) {
                     vm.layout = response.data;
                 });
+        },
+        methods: {
+            fillLayoutWithData: function (layout, data) {
+                let vm = this;
+                vm.list = [];
+                let row = [];
+                let rowWidth = 0;
+                for (let i = 0; i < layout.elements.length; i++) {
+                    let current = layout.elements[i];
+                    current['data'] = data[i] ? data[i] : '';
+                    if (rowWidth + parseInt(current.width) <= layout.width) {
+                        row.push(current);
+                        rowWidth += parseInt(current.width);
+                    } else {
+                        for (let j = rowWidth; j < layout.width; j++) {
+                            row.push({
+                                color: '',
+                                width: 1
+                            })
+                        }
+                        vm.list.push(row);
+                        row = [];
+                        rowWidth = 0;
+
+                        if (vm.list.length < vm.layout.height) {
+                            //berakjuk a mostanit egy új sorba ha nem fért be elsőnek
+                            row.push(current);
+                            rowWidth += parseInt(current.width);
+                        }
+                    }
+                }
+                let emptyFields = false;
+                for (let j = rowWidth; j < vm.layout.width; j++) {
+                    emptyFields = true;
+                    row.push({
+                        color: '',
+                        width: 1
+                    })
+                }
+                if (vm.list.length < vm.layout.height) {
+                    vm.list.push(row);
+                }
+
+                for (let i = vm.list.length; i < vm.layout.height; i++) {
+                    row = [];
+                    for (let j = 0; j < vm.layout.width; j++) {
+                        row.push({
+                            color: '',
+                            width: 1
+                        })
+                    }
+                    vm.list.push(row);
+                }
+            }
         }
     }
 </script>
