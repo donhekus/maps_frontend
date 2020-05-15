@@ -21,9 +21,22 @@
         data () {
             return {
                 url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                zoom: 3,
-                center: [47.413220, -1.219482],
-                bounds: null
+                zoom: 11,
+                center: [47.5622775, 18.9888979],
+                bounds: null,
+
+                layout: [],
+
+                markers: [
+                    {
+                        center: [47.473621, 19.059674],
+                        data: []
+                    },
+                    {
+                        center: [47.646950, 18.816972],
+                        data: []
+                    }
+                ]
             };
         },
     }
