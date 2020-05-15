@@ -4,6 +4,7 @@ import App from "@/components/App";
 import Edit from "@/components/Edit";
 import List from "@/components/List";
 import Home from "@/components/Home";
+import Maps from "@/components/Maps";
 
 window.axios = require('axios').default;
 
@@ -25,6 +26,11 @@ const router = new VueRouter({
             path: '/:id?/edit',
             name: 'edit',
             component: Edit
+        },
+        {
+            path: '/map/:name',
+            name: 'map',
+            component: Maps
         }
     ]
 });
