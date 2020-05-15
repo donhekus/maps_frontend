@@ -6,6 +6,10 @@
                 :center="center"
         >
             <l-tile-layer :url="url"></l-tile-layer>
+
+            <l-marker v-for="marker in markers" :lat-lng="marker.center" :key="marker.center">
+                <l-popup></l-popup>
+            </l-marker>
         </l-map>
     </div>
 </template>
@@ -39,6 +43,13 @@
                 ]
             };
         },
+        created() {
+            let vm = this;
+            window.axios.get('http://api.donhekus.com/layout/' + this.$route.params.name)
+                .then(function (response) {
+                    vm.layout = response.data;
+                });
+        }
     }
 </script>
 
