@@ -73,7 +73,7 @@
                 .then(function (response) {
                     vm.layout = response.data;
                     for (let i = 0; i < vm.markers.length; i++) {
-                        vm.fillLayoutWithData(vm.layout, vm.marker[i].data);
+                        vm.fillLayoutWithData(vm.layout, vm.markers[i].data);
                     }
                 });
         },
