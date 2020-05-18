@@ -8,7 +8,7 @@
             <l-tile-layer :url="url"></l-tile-layer>
 
             <l-marker v-for="marker in markers" :lat-lng="marker.center" :key="marker.center">
-                <l-popup :options="{ maxWidth: 'auto' }">
+                <l-popup :options="{ maxWidth: '800px' }">
                     <table class="preview-table preview-table-map">
                         <tbody>
                         <tr v-for="(i, index) in list" :key="index">
