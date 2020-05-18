@@ -68,10 +68,10 @@
                 vm.list = [];
                 let row = [];
                 let rowWidth = 0;
-                for (let i = 0; i < layout.elements.length; i++) {
-                    let current = layout.elements[i];
+                for (let i = 0; i < vm.layout.elements.length; i++) {
+                    let current = vm.layout.elements[i];
                     current['data'] = data[i] ? data[i] : '';
-                    if (rowWidth + parseInt(current.width) <= layout.width) {
+                    if (rowWidth + parseInt(current.width) <= vm.layout.width) {
                         row.push(current);
                         rowWidth += parseInt(current.width);
                     } else {
