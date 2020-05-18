@@ -140,6 +140,10 @@ td {
 	table-layout: fixed;
 }
 
+.preview-table-map {
+	height: auto;
+}
+
 .preview-table td {
 	border: 2px solid #323538;
 	background-color: #222528;

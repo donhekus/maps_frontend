@@ -9,15 +9,13 @@
 
             <l-marker v-for="marker in markers" :lat-lng="marker.center" :key="marker.center">
                 <l-popup :options="{ maxWidth: 'auto' }">
-                    <aside class="preview">
-                        <table class="preview-table">
-                            <tbody>
-                            <tr v-for="(i, index) in list" :key="index">
-                                <td v-for="(j, jindex) in i" :key="jindex" :colspan="j.width">{{ j.data }}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </aside>
+                    <table class="preview-table preview-table-map">
+                        <tbody>
+                        <tr v-for="(i, index) in list" :key="index">
+                            <td v-for="(j, jindex) in i" :key="jindex" :colspan="j.width">{{ j.data }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </l-popup>
             </l-marker>
         </l-map>
