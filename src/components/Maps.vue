@@ -12,7 +12,17 @@
                     <table class="preview-table preview-table-map">
                         <tbody>
                         <tr v-for="(i, index) in list" :key="index">
-                            <td v-for="(j, jindex) in i" :key="jindex" :colspan="j.width">{{ j.data }}</td>
+                            <td v-for="(j, jindex) in i" :key="jindex" :colspan="j.width">
+                                <div v-if="j.type === 'text'">
+                                    <p>{{ j.data }}</p>
+                                </div>
+                                <div v-else-if="j.type === 'button'">
+                                    <a class="button button-green">{{ j.data }}</a>
+                                </div>
+                                <div v-else-if="j.type === 'picture'">
+                                    <img :src="j.data" alt="Kép">
+                                </div>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
