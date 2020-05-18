@@ -25,13 +25,15 @@
 </template>
 
 <script>
-    import {LMap, LTileLayer} from 'vue2-leaflet';
+    import {LMap, LTileLayer, LMarker, LPopup} from 'vue2-leaflet';
 
     export default {
         name: "Maps.vue",
         components: {
             LMap,
             LTileLayer,
+            LMarker,
+            LPopup
         },
         data () {
             return {
