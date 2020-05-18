@@ -20,8 +20,7 @@
             </tr>
             </tbody>
         </table>
-        <router-link class="button button-small button-green" :to="{ name:'edit'}" title="Szerkesztés">Hozzáadás
-        </router-link>
+        <router-link class="button button-small button-green" :to="{ name:'edit'}" title="Szerkesztés">Hozzáadás</router-link>
     </div>
 </template>
 
@@ -34,8 +33,7 @@
             }
         },
         created() {
-            let vm = this;
-            vm.getPopups();
+            this.getPopups();
         },
         methods: {
             getPopups: function () {

@@ -57,7 +57,7 @@
         },
         created() {
             let vm = this;
-            window.axios.get('http://api.donhekus.com/layout/' + this.$route.params.name)
+            window.axios.get('http://api.donhekus.com/maps/' + this.$route.params.name)
                 .then(function (response) {
                     vm.layout = response.data;
                 });
