@@ -8,7 +8,7 @@
             <l-tile-layer :url="url"></l-tile-layer>
 
             <l-marker v-for="marker in markers" :lat-lng="marker.center" :key="marker.center">
-                <l-popup>
+                <l-popup :options="{ maxWidth: 'auto' }">
                     <aside class="preview">
                         <table class="preview-table">
                             <tbody>
@@ -120,5 +120,4 @@
 </script>
 
 <style scoped>
-
 </style>
